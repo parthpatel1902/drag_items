@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 const socket = require('socket.io');
+require("dotenv").config();
 
 const app = express();
 const server = http.createServer(app);
@@ -43,6 +44,6 @@ io.on('connection', (socket) => {
     
 });
 
-server.listen(3520, () => {
-    console.log('Server is running on http://localhost:3520/index');
+server.listen(process.env.PORT, () => {
+    console.log(`Server is running on ${process.env.PORT}`);
 });
